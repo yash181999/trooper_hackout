@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:trooper_hackout/resources/app_translations_delegate.dart';
+import 'package:trooper_hackout/resources/application.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'Screens/SplashScreen.dart';
+
+import 'Screens/login.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +29,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'sf_pro_regular',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashScreen(),
+      home: LoginScreen(),
     );
   }
 }
