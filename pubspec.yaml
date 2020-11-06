@@ -44,6 +44,8 @@ dependencies:
   webview_flutter: ^1.0.6
   cached_network_image: ^2.3.3
   font_awesome_flutter: ^8.10.0
+  page_transition: ^1.1.7+2
+  youtube_player_flutter: ^7.0.0+7
 
 
 

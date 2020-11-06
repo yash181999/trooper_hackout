@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:trooper_hackout/Screens/YoutubeNewsScreen.dart';
 import 'package:trooper_hackout/news_resource/helper/data.dart';
 import 'package:trooper_hackout/news_resource/helper/news.dart';
 import 'package:trooper_hackout/news_resource/helper/widget.dart';
@@ -49,7 +51,15 @@ class _NewsScreenState extends State<NewsScreen> {
               FontAwesomeIcons.youtube,
               color: black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                PageTransition(
+                  type: PageTransitionType.fade,
+                  child: YoutubeNewsScreen(),
+                ),
+              );
+            },
           )
         ],
         title: Text(
