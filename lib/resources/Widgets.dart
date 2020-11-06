@@ -5,7 +5,7 @@ Widget appbar ({String title }) {
   return AppBar(
     backgroundColor: primary,
        leading: IconButton(
-            icon: Icon(Icons.menu, color: Colors.black,),
+            icon: Icon(Icons.menu, color: Colors.black87,),
          ),
        title: Center(
            child: Text(
