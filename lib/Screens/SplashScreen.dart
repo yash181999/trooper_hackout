@@ -6,8 +6,26 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  _openLanguage() {
+    
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Container(
+          child:RaisedButton(
+            onPressed: (){
+              _openLanguage(context);
+            },
+            color: Colors.redAccent,
+            child: Text("Language"),
+          ),
+        ),
+      ),
+    );
   }
 }
