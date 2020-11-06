@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1018372851596",
+    "firebase_url": "https://farming-app-adc8a.firebaseio.com",
+    "project_id": "farming-app-adc8a",
+    "storage_bucket": "farming-app-adc8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018372851596:android:420eac297e89adc22df8a9",
+        "android_client_info": {
+          "package_name": "com.trooper.trooper_hackout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1018372851596-d3hddi7ui8gnj8e24kpp23t7smn7uqp5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trooper.trooper_hackout",
+            "certificate_hash": "7257cdf748ec7b93acf0bea5599a632998dfbb1a"
+          }
+        },
+        {
+          "client_id": "1018372851596-2r9nabj554cijjuirb86s5er8u752et7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXgklotJrDO98-51IPNsGZQtmzwlcWYko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1018372851596-2r9nabj554cijjuirb86s5er8u752et7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
