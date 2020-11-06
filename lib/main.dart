@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trooper_hackout/Screens/main_screen.dart';
 
 import 'Screens/SplashScreen.dart';
 
@@ -12,12 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashScreen(),
+      home: MainScreen(),
     );
   }
 }
