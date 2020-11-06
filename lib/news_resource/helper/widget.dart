@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trooper_hackout/resources/color.dart';
 
 import '../NewsArticleView.dart';
 
@@ -7,12 +8,12 @@ Widget MyAppBar() {
     centerTitle: true,
     automaticallyImplyLeading: false,
     title: Text(
-      "Health News",
+      "Agriculture News",
       style: TextStyle(
-        color: Color(0xff0f4c75),
+        color: black,
       ),
     ),
-    backgroundColor: Color(0xffbbe1fa),
+    backgroundColor: primary,
   );
 }
 

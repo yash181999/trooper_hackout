@@ -6,6 +6,7 @@ import 'package:trooper_hackout/news_resource/helper/widget.dart';
 import 'package:trooper_hackout/news_resource/models/categorie_model.dart';
 import 'package:trooper_hackout/news_resource/models/categorie_news.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:trooper_hackout/resources/color.dart';
 
 class NewsScreen extends StatefulWidget {
   @override
@@ -46,18 +47,18 @@ class _NewsScreenState extends State<NewsScreen> {
           IconButton(
             icon: Icon(
               FontAwesomeIcons.youtube,
-              color: Color(0xff0f4c75),
+              color: black,
             ),
             onPressed: () {},
           )
         ],
         title: Text(
-          "Health News",
+          "Agriculture News",
           style: TextStyle(
-            color: Color(0xff0f4c75),
+            color: black,
           ),
         ),
-        backgroundColor: Color(0xffbbe1fa),
+        backgroundColor: primary,
       ),
       body: SafeArea(
         child: _loading
