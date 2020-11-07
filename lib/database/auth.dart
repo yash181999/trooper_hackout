@@ -71,12 +71,12 @@ class AuthService {
 
   }
 
-  static Future<void> saveProfilePhotoSharedPref(String profilePhoto)  async {
+  static Future<void> saveUserDeviceToken(String profilePhoto)  async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
      prefs.setString(sharedPrefProfilePhotoUrl, profilePhoto);
   }
 
-  static Future<String> getProfilePhotoSharedPref() async {
+  static Future<String> getUserDeviceToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.get(sharedPrefProfilePhotoUrl);
   }

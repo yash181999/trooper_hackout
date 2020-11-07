@@ -29,6 +29,21 @@ class _SignUpFormState extends State<SignUpForm> {
 
   bool clicked = false;
 
+  String token = '';
+
+  initState(){
+    super.initState();
+    getDeviceToken();
+  }
+
+  getDeviceToken() async{
+    await AuthService.getUserDeviceToken().then((value){
+      setState(() {
+        token = value;
+      });
+    });
+  }
+
 
   submitToDatabase() async{
 
@@ -43,6 +58,7 @@ class _SignUpFormState extends State<SignUpForm> {
      "district" : districtController.text,
      "state" : stateController.text,
      "phone" : widget.phone,
+       "token" : token,
 
      });
 

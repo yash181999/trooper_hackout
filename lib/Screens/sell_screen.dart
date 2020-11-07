@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dotted_border/dotted_border.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class SellScreen extends StatefulWidget {
 }
 
 class _SellScreenState extends State<SellScreen> {
+
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
   Firestore firestore = Firestore.instance;
@@ -33,9 +35,9 @@ class _SellScreenState extends State<SellScreen> {
   final address = TextEditingController();
   final district = TextEditingController();
   final state = TextEditingController();
-  final itemName = TextEditingController();
+  final itemName =TextEditingController();
   final quantity = TextEditingController();
-  final nameController = TextEditingController();
+  final nameController =TextEditingController();
   final price = TextEditingController();
 
   final imagePicker = ImagePicker();
@@ -45,41 +47,54 @@ class _SellScreenState extends State<SellScreen> {
 
   final _formKey = GlobalKey<FormState>();
 
-  void uploadBidToDatabase() async {
-    if (_formKey.currentState.validate() && file != null) {
+
+  void uploadBidToDatabase() async{
+
+    if(_formKey.currentState.validate() && file!=null) {
+
       setState(() {
         clickSubmit = true;
       });
 
-      StorageUploadTask image = FirebaseStorage.instance
-          .ref()
-          .child("Activity")
-          .child(userId)
-          .child(Timestamp.now().toString())
-          .child("Image")
+      StorageUploadTask image = FirebaseStorage.instance.ref().child("Activity")
+          .
+      child(userId).child(Timestamp.now().toString()).child("Image")
           .putFile(file);
 
-      final StorageTaskSnapshot imageDownloadUrl = (await image.onComplete);
+      final StorageTaskSnapshot imageDownloadUrl =
+      (await image.onComplete);
       final String imageFile = await imageDownloadUrl.ref.getDownloadURL();
 
+
       await firestore.collection("Sell").document().setData({
-        "timeStamp": Timestamp.now(),
-        "name": name,
-        "itemName": itemName.text,
-        "quantity": quantity.text,
-        "address": address.text,
-        "district": district.text,
-        "userId": userId,
-        "state": state.text,
-        "photo": imageFile,
-        "price": price.text,
+
+        "timeStamp" : Timestamp.now(),
+        "name" : name,
+        "itemName" : itemName.text,
+        "quantity" : quantity.text,
+        "address" : address.text,
+        "district" : district.text,
+        "userId" : userId,
+        "state" : state.text,
+        "photo" : imageFile,
+        "price" : price.text,
+
       });
 
       setState(() {
         clickSubmit = false;
       });
+
+
+
+
     }
+
   }
+
+
+
+
 
   @override
   void initState() {
@@ -88,37 +103,34 @@ class _SellScreenState extends State<SellScreen> {
     getName();
     getLocation();
   }
-
-  String name = "";
+  String name =  "";
   String userId = "";
   getName() async {
     await AuthService.getUserNameSharePref().then((value) {
       setState(() {
-        name = value;
-        nameController.text = value;
+           name = value;
+           nameController.text = value;
       });
       print(value);
     });
 
     await AuthService.getUserIdSharedPref().then((value) {
-      setState(() {
-        userId = value;
-      });
+         setState(() {
+           userId = value;
+
+         });
     });
   }
 
   //listcard widget
-  Widget ListCard(
-      {dynamic commodityName,
-      dynamic sellerName,
-      dynamic price,
-      dynamic quantity,
-      dynamic location,
-      dynamic btnOnClick}) {
+  Widget ListCard({dynamic commodityName,
+    dynamic sellerName, dynamic price,
+    dynamic quantity, dynamic location,
+    dynamic btnOnClick}){
     return Column(
       children: [
         Card(
-          child: Container(
+          child :  Container(
             padding: EdgeInsets.all(10),
             child: Column(
               children: [
@@ -130,13 +142,13 @@ class _SellScreenState extends State<SellScreen> {
                     ),
                     CustomText(
                       fontFamily: 'sf_pro_regular',
-                      text: commodityName,
+                      text : commodityName,
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 3,
-                ),
+
+                SizedBox(height: 3,),
+
                 Row(
                   children: [
                     CustomText(
@@ -146,14 +158,14 @@ class _SellScreenState extends State<SellScreen> {
                     ),
                     CustomText(
                       fontFamily: 'sf_pro_regular',
-                      text: sellerName,
+                      text : sellerName,
                       fontSize: 14.0,
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 3,
-                ),
+
+                SizedBox(height: 3,),
+
                 Row(
                   children: [
                     CustomText(
@@ -163,14 +175,14 @@ class _SellScreenState extends State<SellScreen> {
                     ),
                     CustomText(
                       fontFamily: 'sf_pro_regular',
-                      text: price,
+                      text : price,
                       fontSize: 14.0,
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 3,
-                ),
+
+                SizedBox(height: 3,),
+
                 Row(
                   children: [
                     CustomText(
@@ -180,14 +192,13 @@ class _SellScreenState extends State<SellScreen> {
                     ),
                     CustomText(
                       fontFamily: 'sf_pro_regular',
-                      text: quantity,
+                      text : quantity,
                       fontSize: 14.0,
                     )
                   ],
                 ),
-                SizedBox(
-                  height: 3,
-                ),
+                SizedBox(height: 3,),
+
                 Container(
                   child: Row(
                     children: [
@@ -201,61 +212,70 @@ class _SellScreenState extends State<SellScreen> {
                       Flexible(
                         child: CustomText(
                           fontFamily: 'sf_pro_regular',
-                          text: location,
+                          text : location,
                           fontSize: 14.0,
                         ),
                       )
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 3,
-                ),
+                SizedBox(height: 3,),
+
                 CustomButton(
                   label: "View",
-                  onPressed: () {
+                  onPressed: (){
                     btnOnClick();
                   },
                   color: secondary,
                   labelColor: white,
                 )
+
               ],
             ),
+
           ),
         ),
-        SizedBox(
-          height: 20,
-        )
+
+        SizedBox(height: 20,)
       ],
     );
   }
   //listcard widget
 
+
   //getting current location..
   dynamic getLocation() async {
+
     try {
       Position position = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.high);
-      final coordinates =
-          new Coordinates(position.latitude, position.longitude);
-      final addresses =
-          await Geocoder.local.findAddressesFromCoordinates(coordinates);
+      final coordinates = new Coordinates(
+          position.latitude, position.longitude);
+      final addresses = await Geocoder.local.findAddressesFromCoordinates(
+          coordinates);
 
       //fill address automatically in fields;
-      address.text += addresses.first.addressLine;
-      district.text += addresses.first.subAdminArea;
+      address.text +=  addresses.first.addressLine;
+      district.text +=  addresses.first.subAdminArea;
       state.text += addresses.first.adminArea;
 
       return addresses.first.featureName;
-    } catch (e) {
+
+    }
+    catch(e){
       print(e);
     }
+
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbar(title: "Sell Agriculture Goods"),
+      appBar: appbar(
+        title: "Sell Agriculture Goods"
+      ),
+
       body: Container(
         padding: EdgeInsets.all(10),
         child: SingleChildScrollView(
@@ -263,9 +283,9 @@ class _SellScreenState extends State<SellScreen> {
             key: _formKey,
             child: Column(
               children: [
-                SizedBox(
-                  height: 5,
-                ),
+
+                SizedBox(height: 5,),
+
 
                 Container(
                   child: HeadingText(
@@ -273,9 +293,9 @@ class _SellScreenState extends State<SellScreen> {
                   ),
                 ),
 
-                SizedBox(
-                  height: 5,
-                ),
+                SizedBox(height: 5,),
+
+
 
                 DottedBorder(
                   borderType: BorderType.RRect,
@@ -287,52 +307,58 @@ class _SellScreenState extends State<SellScreen> {
                       width: MediaQuery.of(context).size.width,
                       color: primary,
                       child: Center(
-                        child: InkWell(
-                            onTap: () async {
-                              if (file == null) {
-                                dynamic imageFile = await imagePicker.getImage(
-                                    source: ImageSource.gallery);
+                          child: InkWell(
+                            onTap: () async{
+
+                              if(file==null) {
+                                dynamic imageFile = await imagePicker.getImage(source: ImageSource.gallery);
 
                                 setState(() {
                                   file = File(imageFile.path);
                                 });
-                              } else {
+
+                              }
+                              else{
                                 setState(() {
                                   file = null;
                                 });
                               }
+
+
                             },
-                            child: file == null
-                                ? ClipRRect(
-                                    borderRadius: BorderRadius.circular(20),
-                                    child: Container(
-                                      height: 100,
-                                      width: 100,
-                                      color: secondary,
-                                      child: Center(
-                                        child: Icon(
-                                          Icons.add,
-                                          size: 50,
-                                          color: white,
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                : Image(
-                                    fit: BoxFit.cover,
-                                    image: FileImage(file),
-                                  )),
+                            child: file == null ?  ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Container(
+                                height: 100,
+                                width: 100,
+                                color: secondary,
+                                child: Center(
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 50,
+                                    color: white,
+                                  ),
+                                ),
+                              ),
+                            ) : Image(
+                              fit: BoxFit.cover,
+                              image: FileImage(
+                                file
+                              ),
+                            )
+                          ),
                       ),
                     ),
                   ),
                 ),
 
+
                 //name field
                 CustomTextField(
                   label: "Your Name",
                   controller: nameController,
-                  validator: (value) {
-                    if (value.isEmpty) {
+                  validator: (value){
+                    if(value.isEmpty) {
                       return "Field empty";
                     }
                     return null;
@@ -343,8 +369,8 @@ class _SellScreenState extends State<SellScreen> {
                 CustomTextField(
                   label: "Item Name",
                   controller: itemName,
-                  validator: (value) {
-                    if (value.isEmpty) {
+                  validator: (value){
+                    if(value.isEmpty) {
                       return "Field empty";
                     }
                     return null;
@@ -354,8 +380,8 @@ class _SellScreenState extends State<SellScreen> {
                 CustomTextField(
                   label: "Quantity",
                   controller: quantity,
-                  validator: (value) {
-                    if (value.isEmpty) {
+                  validator: (value){
+                    if(value.isEmpty) {
                       return "Field empty";
                     }
                     return null;
@@ -366,20 +392,21 @@ class _SellScreenState extends State<SellScreen> {
                   label: "Price",
                   controller: price,
                   type: TextInputType.number,
-                  validator: (value) {
-                    if (value.isEmpty) {
+                  validator: (value){
+                    if(value.isEmpty) {
                       return "Field empty";
                     }
                     return null;
                   },
                 ),
 
+
                 //address Field
                 CustomTextField(
                   label: "Address",
                   controller: address,
-                  validator: (value) {
-                    if (value.isEmpty) {
+                  validator: (value){
+                    if(value.isEmpty) {
                       return "Field empty";
                     }
                     return null;
@@ -390,20 +417,22 @@ class _SellScreenState extends State<SellScreen> {
                 CustomTextField(
                   label: "District",
                   controller: district,
-                  validator: (value) {
-                    if (value.isEmpty) {
+                  validator: (value){
+                    if(value.isEmpty) {
                       return "Field empty";
                     }
                     return null;
                   },
                 ),
 
+
+
                 //state field
                 CustomTextField(
                   label: "State",
                   controller: state,
-                  validator: (value) {
-                    if (value.isEmpty) {
+                  validator: (value){
+                    if(value.isEmpty) {
                       return "Field empty";
                     }
                     return null;
@@ -414,16 +443,16 @@ class _SellScreenState extends State<SellScreen> {
                   height: 10,
                 ),
 
-                clickSubmit == false
-                    ? CustomButton(
-                        color: secondary,
-                        labelColor: white,
-                        onPressed: () {
-                          uploadBidToDatabase();
-                        },
-                        label: "SUBMIT",
-                      )
-                    : Center(child: CircularProgressIndicator()),
+
+                clickSubmit == false ? CustomButton(
+                  color: secondary,
+                  labelColor: white,
+                  onPressed: (){
+                    uploadBidToDatabase();
+                  },
+                  label: "SUBMIT",
+                ) : Center(child: CircularProgressIndicator()),
+
               ],
             ),
           ),

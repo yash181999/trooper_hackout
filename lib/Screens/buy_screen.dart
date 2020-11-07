@@ -199,6 +199,7 @@ class _BuyScreenState extends State<BuyScreen> {
                          state: doc['state'],
                          photo: doc['photo'],
                          price: doc['price'],
+                         documentId: doc.documentID,
                        ),
                      ));
                    }
@@ -220,6 +221,8 @@ class _BuyScreenState extends State<BuyScreen> {
                           state: doc['state'],
                           photo: doc['photo'],
                           price: doc['price'],
+                          sellerTokenId: doc['token'],
+                          documentId: doc.documentID,
                         ),
                     ));
                  }

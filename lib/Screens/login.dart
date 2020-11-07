@@ -1,10 +1,12 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trooper_hackout/Screens/main_screen.dart';
 import 'package:trooper_hackout/Screens/signup_form.dart';
+import 'package:trooper_hackout/database/auth.dart';
 import 'package:trooper_hackout/resources/color.dart';
 import 'package:trooper_hackout/widgets/customButton.dart';
 import 'package:trooper_hackout/widgets/heading_text.dart';
@@ -25,6 +27,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final phoneNumberTEC = TextEditingController();
 
   final codeController = TextEditingController();
+  final FirebaseMessaging _fcm = FirebaseMessaging();
+
 
 
   String countryCode = "+91";
@@ -45,6 +49,21 @@ class _LoginScreenState extends State<LoginScreen> {
       return false;
     }
     return true;
+  }
+
+  _saveDeviceToken(String userId) async {
+
+    String fcmToken = await _fcm.getToken();
+
+    if(fcmToken != null) {
+
+
+      await AuthService.saveUserDeviceToken(fcmToken);
+
+    }
+
+    print('FCMToken : $fcmToken');
+
   }
 
 
@@ -116,13 +135,17 @@ class _LoginScreenState extends State<LoginScreen> {
                         if(user!=null) {
                           bool status  = await checkIfExist(user.uid);
                           if(status == true) {
+                            await _saveDeviceToken(user.uid);
                             Navigator.pushReplacement(context, MaterialPageRoute(
                               builder: (context) => MainScreen(),
                             ));
                           }
                           else{
+
+                           await _saveDeviceToken(user.uid);
+
                             Navigator.pushReplacement(context, MaterialPageRoute(
-                              builder: (context) => SignUpForm(userId: user.uid, phone:  phoneNumberTEC.text,),
+                              builder: (context) => SignUpForm(userId: user.uid, phone:  phoneNumberTEC.text),
                             ));
                           }
                         }

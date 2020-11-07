@@ -107,20 +107,7 @@ class _SplashScreenState extends State<SplashScreen> {
               JumpingDotsProgressIndicator(
                 fontSize: 50.0,
               ),
-              Expanded(
-                child: Align(
-                  alignment: FractionalOffset.bottomCenter,
-                  child: Container(
-                    height: 170,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/lowerd@3x.png'),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+
             ],
           ),
         ),

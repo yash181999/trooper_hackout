@@ -30,6 +30,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     Location location = Location();
     await location.getCurrentLocation();
 
+
     NetworkHelper networkHelper = NetworkHelper(
         'http://api.openweathermap.org/data/2.5/weather?q=indore&appid=$api_key&units=metric');
     var results = await networkHelper.getData();

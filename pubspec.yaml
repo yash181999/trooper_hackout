@@ -40,6 +40,7 @@ dependencies:
   flutter_tts: ^1.2.6
   shared_preferences: ^0.5.8
   keyboard_visibility: ^0.5.6
+  flutter_speed_dial:
   webview_flutter: ^1.0.6
   cached_network_image: ^2.3.3
   font_awesome_flutter: ^8.10.0
@@ -49,9 +50,14 @@ dependencies:
   dotted_border: ^1.0.6
   image_picker:
   flutter_sms: ^2.1.1
+  agora_rtc_engine: ^1.0.13
+  permission_handler: ^5.0.1+1
   animated_text_kit: ^2.5.4
   progress_indicators: ^0.1.5
+  animated_floatactionbuttons: ^0.1.0
   tflite: ^1.1.1
+  http: ^0.12.2
+  fluttertoast: ^3.1.0
 
 
 
@@ -79,8 +85,9 @@ flutter:
   assets:
      - assets/locale/localization_en.json
      - assets/locale/localization_hi.json
-     - assets/labels.txt
+     - assets/logo.png
      - assets/model_unquant.tflite
+     - assets/labels.txt
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
