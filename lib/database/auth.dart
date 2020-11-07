@@ -18,6 +18,7 @@ class AuthService {
   static String sharedPrefOnBoardingScreenSeen = "onBoardingScreen";
   static String sharedPrefAccountTypeBusiness = "business";
 
+
   Future registerWithEmailAndPassword({String email,String password,String name, String phone})async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(

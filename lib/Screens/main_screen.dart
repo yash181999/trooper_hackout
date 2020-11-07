@@ -4,6 +4,8 @@ import 'package:trooper_hackout/Buy_sell.dart';
 import 'package:trooper_hackout/Market.dart';
 import 'package:trooper_hackout/Screens/NewsScreen.dart';
 import 'package:trooper_hackout/Screens/WeatherScreen.dart';
+import 'package:trooper_hackout/Screens/buy_screen.dart';
+import 'package:trooper_hackout/Screens/sell_screen.dart';
 import 'package:trooper_hackout/acount.dart';
 import 'package:trooper_hackout/crop_virus.dart';
 import 'package:trooper_hackout/news_resource/helper/news.dart';
@@ -54,7 +56,7 @@ class _MainScreenState extends State<MainScreen> {
         ),
         onPressed: () {
           setState(() {
-            currentScreen = BuySell();
+            currentScreen = BuyScreen();
           });
         },
       ),

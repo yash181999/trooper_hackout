@@ -9,6 +9,7 @@ import 'package:trooper_hackout/news_resource/models/categorie_model.dart';
 import 'package:trooper_hackout/news_resource/models/categorie_news.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:trooper_hackout/resources/color.dart';
+import 'package:trooper_hackout/widgets/app_bar.dart';
 
 class NewsScreen extends StatefulWidget {
   @override
@@ -42,33 +43,11 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(
-              FontAwesomeIcons.youtube,
-              color: black,
-            ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                PageTransition(
-                  type: PageTransitionType.fade,
-                  child: YoutubeNewsScreen(),
-                ),
-              );
-            },
-          )
-        ],
-        title: Text(
-          "Agriculture News",
-          style: TextStyle(
-            color: black,
-          ),
-        ),
-        backgroundColor: primary,
+      appBar: appbar(
+        title: ("Agriculture News"),
+        widget: Icon(
+          Icons.menu,
+        )
       ),
       body: SafeArea(
         child: _loading

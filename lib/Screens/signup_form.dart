@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:trooper_hackout/Screens/main_screen.dart';
+import 'package:trooper_hackout/database/auth.dart';
 import 'package:trooper_hackout/resources/color.dart';
 import 'package:trooper_hackout/widgets/customButton.dart';
 import 'package:trooper_hackout/widgets/textField.dart';
@@ -44,6 +45,9 @@ class _SignUpFormState extends State<SignUpForm> {
      "phone" : widget.phone,
 
      });
+
+     await AuthService.saveUserNameSharedPref(nameController.text);
+     await AuthService.saveUserIdSharedPref(widget.userId);
 
      Navigator.pushReplacement(context, MaterialPageRoute(
        builder: (context) => MainScreen(),
