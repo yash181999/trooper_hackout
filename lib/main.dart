@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/Screens/main_screen.dart';
 import 'package:trooper_hackout/Screens/splash_screen.dart';
 import 'package:trooper_hackout/database/auth.dart';
@@ -6,7 +7,6 @@ import 'package:trooper_hackout/resources/app_translations_delegate.dart';
 import 'package:trooper_hackout/resources/application.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:trooper_hackout/resources/color.dart';
-
 
 import 'Screens/login.dart';
 
@@ -21,20 +21,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
-
   }
-
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +33,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor:primary,
+        primaryColor: primary,
         fontFamily: 'sf_pro_regular',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

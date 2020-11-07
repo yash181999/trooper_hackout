@@ -50,6 +50,8 @@ dependencies:
   dotted_border: ^1.0.6
   image_picker:
   flutter_sms: ^2.1.1
+  animated_text_kit: ^2.5.4
+  progress_indicators: ^0.1.5
 
 
 
@@ -76,6 +78,7 @@ flutter:
   assets:
      - assets/locale/localization_en.json
      - assets/locale/localization_hi.json
+     - assets/logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
