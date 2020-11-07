@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class HeadingText extends StatelessWidget {
 
   final text , fontSize;
-  HeadingText(this.text , {this.fontSize = 28});
+  HeadingText(this.text , {this.fontSize = 28.0});
 
   @override
   Widget build(BuildContext context) {

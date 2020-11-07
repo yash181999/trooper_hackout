@@ -76,6 +76,8 @@ class _TlightState extends State<Tlight> {
         child: Column(
           children: [
             SizedBox(height: 30,),
+             HeadingText("Upload an Image"),
+             SizedBox(height: 20,),
              DottedBorder(
               borderType: BorderType.RRect,
               radius: Radius.circular(12),
