@@ -26,6 +26,9 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+    aaptOptions {
+        noCompress "tflite"
+    }
     compileSdkVersion 29
 
     sourceSets {
@@ -39,7 +42,7 @@ android {
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.trooper.trooper_hackout"
-        minSdkVersion 21
+        minSdkVersion 22
         targetSdkVersion 29
         multiDexEnabled true
         versionCode flutterVersionCode.toInteger()

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:trooper_hackout/Screens/main_screen.dart';
-import 'package:trooper_hackout/Screens/splash_screen.dart';
-import 'package:trooper_hackout/database/auth.dart';
 import 'package:trooper_hackout/resources/app_translations_delegate.dart';
 import 'package:trooper_hackout/resources/application.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -22,18 +20,6 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-
-  }
-
-
-
-
-
 
 
   @override
@@ -46,7 +32,7 @@ class _MyAppState extends State<MyApp> {
         fontFamily: 'sf_pro_regular',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashScreen(),
+      home: MainScreen(),
     );
   }
 }
