@@ -8,7 +8,6 @@ import 'package:trooper_hackout/resources/app_translations_delegate.dart';
 import 'package:trooper_hackout/resources/application.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:trooper_hackout/resources/color.dart';
-
 import 'Screens/login.dart';
 
 void main() {
