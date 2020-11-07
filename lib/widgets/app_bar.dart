@@ -6,19 +6,19 @@ Widget appbar ({String title , dynamic widget}) {
 
     backgroundColor: primary,
        iconTheme: IconThemeData(
-         color: black,
+         color: Colors.white,
        ),
        leading: widget,
        title: Center(
            child: Text(
            "$title",
              style: TextStyle(
-               color: Colors.black
+               color: Colors.white
              ),
           ),
         ),
        actions: [
-          Icon(Icons.notifications , color: Colors.black,),
+          Icon(Icons.notifications , color: Colors.white,),
           SizedBox(width: 15,)
         ],
         elevation: 0.0,

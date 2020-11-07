@@ -4,6 +4,9 @@ import 'package:trooper_hackout/Market.dart';
 import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/Screens/buy_screen.dart';
 import 'package:trooper_hackout/Screens/tlight.dart';
+import 'package:trooper_hackout/resources/color.dart';
+import 'package:trooper_hackout/resources/color.dart';
+import 'package:trooper_hackout/resources/color.dart';
 
 class NavDrawer extends StatelessWidget {
 
@@ -15,15 +18,20 @@ class NavDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
+            decoration: BoxDecoration(
+              color: primary
+            ),
             child: Container(
-              color: Colors.transparent,
+              color: primary,
               child: Column(
+
                 children: [
                   Text(
                     "My Profile",
                     style: TextStyle(
                         fontFamily: "sf_pro_medium",
-                        fontSize: 23
+                        fontSize: 23,
+                        color: Colors.white
                     ),
                   ),
                   SizedBox(height: 40,),
@@ -38,17 +46,19 @@ class NavDrawer extends StatelessWidget {
                                 "Vinay Solanki",
                                 style: TextStyle(
                                     fontFamily: "sf_pro_medium",
-                                    fontSize: 20
+                                    fontSize: 20,
+                                    color: Colors.white
                                 ),
                               ),
                             ),
                             SizedBox(height: 10,),
                             Center(
                               child: Text(
-                                "vinaysolanki535@gmail.com",
+                                "vinaysolanki24516@gmail.com",
                                 style: TextStyle(
                                     fontFamily: "sf_pro_medium",
-                                    fontSize: 15
+                                    fontSize: 15,
+                                    color: Colors.white
                                 ),
                               ),
                             )

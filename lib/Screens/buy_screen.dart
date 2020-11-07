@@ -151,7 +151,7 @@ class _BuyScreenState extends State<BuyScreen> {
     return Scaffold(
       drawer: NavDrawer(),
      appBar: AppBar(
-       title: clickedSearch == false ?  Text("What do you want to buy") :
+       title: clickedSearch == false ?  Text("What do you want to buy" , style: TextStyle(color: Colors.white),) :
        CustomTextField(
          label : "Search",
          controller: searchedText,
@@ -159,7 +159,7 @@ class _BuyScreenState extends State<BuyScreen> {
        centerTitle: true,
        actions: [
          IconButton(
-           icon: Icon(Icons.search),
+           icon: Icon(Icons.search , color: Colors.white,),
            onPressed: (){
              setState(() {
                clickedSearch = !clickedSearch;

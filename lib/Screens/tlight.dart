@@ -1,4 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
@@ -132,7 +133,7 @@ class _TlightState extends State<Tlight> {
 
 
             SizedBox(height: 50,),
-            RedButton(btnTitle: "Experts", btnColor: primary, textColor: black,)
+            RedButton(btnTitle: "Experts", btnColor: primary, textColor: white,)
           ],
         ),
       ),
