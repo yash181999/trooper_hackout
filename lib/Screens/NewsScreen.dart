@@ -44,11 +44,10 @@ class _NewsScreenState extends State<NewsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appbar(
-        title: ("Agriculture News"),
-        widget: Icon(
-          Icons.menu,
-        )
-      ),
+          title: ("Agriculture News"),
+          widget: Icon(
+            Icons.menu,
+          )),
       body: SafeArea(
         child: _loading
             ? Center(
@@ -109,12 +108,22 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
+        if (categoryName == 'Videos') {
+          Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => CategoryNews(
-                      newsCategory: categoryName.toLowerCase(),
-                    )));
+            PageTransition(
+              type: PageTransitionType.fade,
+              child: YoutubeNewsScreen(),
+            ),
+          );
+        } else {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => CategoryNews(
+                        newsCategory: categoryName.toLowerCase(),
+                      )));
+        }
       },
       child: Container(
         margin: EdgeInsets.only(right: 14),
