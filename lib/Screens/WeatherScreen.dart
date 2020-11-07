@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trooper_hackout/Screens/NavDrawer.dart';
 import 'package:trooper_hackout/resources/color.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
@@ -52,6 +53,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: appbar(
         title: "Current Weather",
       ),

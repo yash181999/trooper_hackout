@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:trooper_hackout/Screens/NavDrawer.dart';
 import 'package:trooper_hackout/Screens/sellerInfo.dart';
 import 'package:trooper_hackout/resources/color.dart';
 import 'package:trooper_hackout/widgets/app_bar.dart';
@@ -148,6 +149,7 @@ class _BuyScreenState extends State<BuyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
      appBar: AppBar(
        title: clickedSearch == false ?  Text("What do you want to buy") :
        CustomTextField(

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class HeadingText extends StatelessWidget {
 
-  final text;
-  HeadingText(this.text);
+  final text , fontSize;
+  HeadingText(this.text , {this.fontSize = 28});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class HeadingText extends StatelessWidget {
         style: TextStyle(
           color: Colors.black,
           fontFamily: 'sf_pro_bold',
-          fontSize: 28,
+          fontSize: fontSize,
         ),
       ),
     );

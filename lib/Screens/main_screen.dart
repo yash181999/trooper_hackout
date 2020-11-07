@@ -6,6 +6,7 @@ import 'package:trooper_hackout/Screens/NewsScreen.dart';
 import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/Screens/buy_screen.dart';
 import 'package:trooper_hackout/Screens/sell_screen.dart';
+import 'package:trooper_hackout/Screens/tlight.dart';
 import 'package:trooper_hackout/acount.dart';
 import 'package:trooper_hackout/crop_virus.dart';
 import 'package:trooper_hackout/news_resource/helper/news.dart';
@@ -26,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> screens = [
     NewsScreen(),
     Market(),
-    CropVirus(),
+    Tlight(),
     WeatherScreen()
   ]; // to store nested tabs
   final PageStorageBucket bucket = PageStorageBucket();
@@ -81,7 +82,7 @@ class _MainScreenState extends State<MainScreen> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                            NewsScreen(); // if user taps on this dashboard tab will be active
+                            NewsScreen();
                         currentTab = 0;
                       });
                     },
@@ -106,7 +107,7 @@ class _MainScreenState extends State<MainScreen> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                          Market(); // if user taps on this dashboard tab will be active
+                          Market();
                         currentTab = 1;
                       });
                     },
@@ -139,7 +140,7 @@ class _MainScreenState extends State<MainScreen> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                            CropVirus(); // if user taps on this dashboard tab will be active
+                            Tlight();
                         currentTab = 2;
                       });
                     },
@@ -151,7 +152,7 @@ class _MainScreenState extends State<MainScreen> {
                           color: currentTab == 2 ? primary : Colors.grey,
                         ),
                         Text(
-                          'BuySell',
+                          'Solution',
                           style: TextStyle(
                             color: currentTab == 2 ? primary : Colors.grey,
                           ),
@@ -164,7 +165,7 @@ class _MainScreenState extends State<MainScreen> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                            WeatherScreen(); // if user taps on this dashboard tab will be active
+                            WeatherScreen();
                         currentTab = 3;
                       });
                     },
@@ -172,7 +173,7 @@ class _MainScreenState extends State<MainScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
-                          Icons.person_rounded,
+                          Icons.terrain,
                           color: currentTab == 3 ? primary : Colors.grey,
                         ),
                         Text(
@@ -191,6 +192,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ),
       ),
+
     );
   }
 }

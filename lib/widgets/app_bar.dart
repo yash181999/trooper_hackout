@@ -3,6 +3,7 @@ import 'package:trooper_hackout/resources/color.dart';
 
 Widget appbar ({String title , dynamic widget}) {
   return AppBar(
+
     backgroundColor: primary,
        iconTheme: IconThemeData(
          color: black,

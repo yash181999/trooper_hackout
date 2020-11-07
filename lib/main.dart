@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
         fontFamily: 'sf_pro_regular',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Tlight(),
+      home: MainScreen(),
     );
   }
 }

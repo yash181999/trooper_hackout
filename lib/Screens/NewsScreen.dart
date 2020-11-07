@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:trooper_hackout/Screens/NavDrawer.dart';
 import 'package:trooper_hackout/Screens/YoutubeNewsScreen.dart';
 import 'package:trooper_hackout/news_resource/helper/data.dart';
 import 'package:trooper_hackout/news_resource/helper/news.dart';
@@ -43,11 +44,10 @@ class _NewsScreenState extends State<NewsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: appbar(
           title: ("Agriculture News"),
-          widget: Icon(
-            Icons.menu,
-          )),
+          ),
       body: SafeArea(
         child: _loading
             ? Center(
