@@ -1,0 +1,10 @@
+0 Corn_Cercospora_leafspot_Grayleafspot
+1 Corn_Common_rust_
+2 Corn_healthy
+3 Corn_Northern_Leaf_Blight
+4 Potato_Early_blight
+5 Potato_healthy
+6 Potato_Late_blight
+7 Tomato_Bacterial_spot
+8 Tomato_Tomato_mosaic_virus
+9 Tomato_healthy
