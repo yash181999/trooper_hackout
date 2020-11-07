@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:trooper_hackout/Screens/NewsScreen.dart';
+import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/resources/app_translations_delegate.dart';
 import 'package:trooper_hackout/resources/application.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 
 import 'Screens/login.dart';
 
@@ -17,16 +18,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        fontFamily: 'sf_pro_regular',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: LoginScreen(),
