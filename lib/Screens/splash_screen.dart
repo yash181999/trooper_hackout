@@ -66,50 +66,95 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(top: 170.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Container(
-                height: 150,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/logo.png'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              height: 200,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/upperd@3x.png'),
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+            Container(
+              height: 150,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/logo.png'),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Kr',
+                  style: TextStyle(
+                    fontFamily: 'sf_pro_semibold',
+                    fontSize: 40,
+                    color: const Color(0xff1b262c),
+                  ),
+                ),
+                SizedBox(
+                  width: 7,
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  height: 40,
+                  child: Image(
+                    image: AssetImage('assets/sprout.png'),
+                  ),
+                ),
+                SizedBox(
+                  width: 7,
+                ),
+                Text(
+                  'shak',
+                  style: TextStyle(
+                    fontFamily: 'sf_pro_semibold',
+                    fontSize: 40,
+                    color: const Color(0xff1b262c),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              'किसान की उन्नति है, देश की प्रगति',
+              style: TextStyle(
+                fontSize: 20,
+                color: const Color(0xff1b262c),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            JumpingDotsProgressIndicator(
+              fontSize: 50.0,
+            ),
+            Expanded(
+              child: Align(
+                alignment: FractionalOffset.bottomCenter,
+                child: Container(
+                  height: 170,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/lowerd@3x.png'),
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                'Krishak',
-                style: TextStyle(
-                  fontFamily: 'sf_pro_semibold',
-                  fontSize: 40,
-                  color: black,
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'किसान की उन्नति है, देश की प्रगति',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: const Color(0xff1b262c),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              JumpingDotsProgressIndicator(
-                fontSize: 50.0,
-              ),
-
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
