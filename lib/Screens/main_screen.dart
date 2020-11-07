@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:trooper_hackout/Buy_sell.dart';
 import 'package:trooper_hackout/Market.dart';
 import 'package:trooper_hackout/Screens/NewsScreen.dart';
+import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/acount.dart';
 import 'package:trooper_hackout/crop_virus.dart';
+import 'package:trooper_hackout/news_resource/helper/news.dart';
 import 'package:trooper_hackout/resources/color.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
 
@@ -14,13 +16,15 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+
+
   bool keyboardOpen = false;
   int currentTab = 0; // to keep track of active tab index
   final List<Widget> screens = [
     NewsScreen(),
     Market(),
     CropVirus(),
-    Account()
+    WeatherScreen()
   ]; // to store nested tabs
   final PageStorageBucket bucket = PageStorageBucket();
   Widget currentScreen = NewsScreen();
@@ -37,26 +41,27 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       body: PageStorage(
         child: currentScreen,
         bucket: bucket,
       ),
-      floatingActionButton: keyboardOpen
-          ? SizedBox()
-          : FloatingActionButton(
-              backgroundColor: primary,
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                setState(() {
-                  currentScreen = BuySell();
-                });
-              },
-            ),
+      floatingActionButton: keyboardOpen ? SizedBox() : FloatingActionButton(
+        backgroundColor: primary,
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+        onPressed: () {
+          setState(() {
+            currentScreen = BuySell();
+          });
+        },
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+
+
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 10,
@@ -98,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                            Market(); // if user taps on this dashboard tab will be active
+                          Market(); // if user taps on this dashboard tab will be active
                         currentTab = 1;
                       });
                     },
@@ -156,7 +161,7 @@ class _MainScreenState extends State<MainScreen> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                            BuySell(); // if user taps on this dashboard tab will be active
+                            WeatherScreen(); // if user taps on this dashboard tab will be active
                         currentTab = 3;
                       });
                     },
@@ -168,7 +173,7 @@ class _MainScreenState extends State<MainScreen> {
                           color: currentTab == 3 ? primary : Colors.grey,
                         ),
                         Text(
-                          'Account',
+                          'Weather',
                           style: TextStyle(
                             color: currentTab == 3 ? primary : Colors.grey,
                           ),
@@ -178,6 +183,7 @@ class _MainScreenState extends State<MainScreen> {
                   )
                 ],
               )
+
             ],
           ),
         ),

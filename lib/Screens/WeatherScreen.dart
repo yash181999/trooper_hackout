@@ -28,7 +28,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     await location.getCurrentLocation();
 
     NetworkHelper networkHelper = NetworkHelper(
-        'http://api.openweathermap.org/data/2.5/weather?lat=${location.latitude}&lon=${location.longitude}&appid=$api_key&units=metric');
+        'http://api.openweathermap.org/data/2.5/weather?lat=22.7196&lon=75.8577&appid=$api_key&units=metric');
     var results = await networkHelper.getData();
     setState(() {
       this.temp = results['main']['temp'];
