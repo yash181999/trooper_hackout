@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trooper_hackout/Screens/NewsScreen.dart';
+import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/resources/app_translations_delegate.dart';
 import 'package:trooper_hackout/resources/application.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -25,7 +26,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: NewsScreen(),
+      home: LoginScreen(),
     );
   }
 }

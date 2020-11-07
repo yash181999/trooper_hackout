@@ -36,7 +36,6 @@ dependencies:
   firebase_core: ^0.4.5
   firebase_analytics: ^5.0.16
   firebase_storage: ^3.1.6
-  geolocator:
   geocoder: ^0.2.1
   flutter_tts: ^1.2.6
   shared_preferences: ^0.5.8
@@ -46,6 +45,7 @@ dependencies:
   font_awesome_flutter: ^8.10.0
   page_transition: ^1.1.7+2
   youtube_player_flutter: ^7.0.0+7
+  geolocator: ^6.1.5
 
 
 
