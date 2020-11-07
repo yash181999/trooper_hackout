@@ -1,8 +1,9 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
+import 'package:trooper_hackout/resources/color.dart';
 import 'dart:io';
-
 import 'package:trooper_hackout/widgets/app_bar.dart';
 
 class Tlight extends StatefulWidget {
@@ -13,21 +14,19 @@ class Tlight extends StatefulWidget {
 class _TlightState extends State<Tlight> {
 
   File Pickedimage;
-  bool isimageloded = false;
 
   List _result;
   String _confidence = "";
   String _name = "";
   String numbers = "";
 
-  getImageFormGallery() async {
-    var tempStore = await ImagePicker().getImage(source: ImageSource.gallery);
-    setState(() {
-      Pickedimage = File(tempStore.path);
-      isimageloded = true;
-      applyModelOnImage(Pickedimage);
-    });
-  }
+//  getImageFormGallery() async {
+//    var tempStore = await ImagePicker().getImage(source: ImageSource.gallery);
+//    setState(() {
+//      Pickedimage = File(tempStore.path);
+//      applyModelOnImage(Pickedimage);
+//    });
+//  }
 
   loadMyModel() async{
     var result = await Tflite.loadModel(
@@ -72,30 +71,60 @@ class _TlightState extends State<Tlight> {
         child: Column(
           children: [
             SizedBox(height: 30,),
-            isimageloded ? Center(
-              child: Container(
-                height: 350,
-                width: 350,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: FileImage(File(Pickedimage.path)),
-                    fit: BoxFit.contain
-                  )
+             DottedBorder(
+              borderType: BorderType.RRect,
+              radius: Radius.circular(12),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  height: 200,
+                  width: MediaQuery.of(context).size.width,
+                  color: primary,
+                  child: Center(
+                    child: InkWell(
+                        onTap: () async {
+                          if (Pickedimage == null) {
+                            dynamic imageFile = await ImagePicker().getImage(source: ImageSource.gallery);
+                            setState(() {
+                              Pickedimage = File(imageFile.path);
+                              applyModelOnImage(Pickedimage);
+                            });
+                          } else {
+                            setState(() {
+                              Pickedimage = null;
+                            });
+                          }
+                        },
+                        child: Pickedimage == null
+                            ? ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Container(
+                            height: 100,
+                            width: 100,
+                            color: secondary,
+                            child: Center(
+                              child: Icon(
+                                Icons.add,
+                                size: 50,
+                                color: white,
+                              ),
+                            ),
+                          ),
+                        )
+                            : Image(
+                          fit: BoxFit.cover,
+                          image: FileImage(Pickedimage),
+                        )),
+                  ),
                 ),
               ),
-            ) : Container(),
+            ),
+
+
             SizedBox(height: 10,),
-         Text("Name : $_name \n Confidence : $_confidence"),
+            Text("Name : $_name \n Confidence : $_confidence"),
 
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          getImageFormGallery();
-        },
-        child: Icon(
-          Icons.photo_album
         ),
       ),
     );
