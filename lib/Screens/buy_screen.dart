@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trooper_hackout/resources/Widgets.dart';
+import 'package:trooper_hackout/widgets/app_bar.dart';
 
 class BuyScreen extends StatefulWidget {
   @override

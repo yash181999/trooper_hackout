@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:trooper_hackout/resources/color.dart';
 
-Widget appbar ({String title }) {
+Widget appbar ({String title , dynamic widget}) {
   return AppBar(
     backgroundColor: primary,
-       leading: IconButton(
-            icon: Icon(Icons.menu, color: Colors.black87,),
-         ),
+       iconTheme: IconThemeData(
+         color: black,
+       ),
+       leading: widget,
        title: Center(
            child: Text(
            "$title",

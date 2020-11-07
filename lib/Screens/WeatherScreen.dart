@@ -8,6 +8,8 @@ import 'package:trooper_hackout/resources/weather_secret.dart';
 import 'package:geolocator/geolocator.dart';
 import 'dart:convert';
 
+import 'package:trooper_hackout/widgets/app_bar.dart';
+
 class WeatherScreen extends StatefulWidget {
   @override
   _WeatherScreenState createState() => _WeatherScreenState();
@@ -50,16 +52,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        automaticallyImplyLeading: false,
-        title: Text(
-          "Current Weather",
-          style: TextStyle(
-            color: black,
-          ),
-        ),
-        backgroundColor: primary,
+      appBar: appbar(
+         title: "Current Weather",
       ),
       body: Column(
         children: [
