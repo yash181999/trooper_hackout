@@ -160,58 +160,61 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          padding: EdgeInsets.all(20.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "LOGIN",
-                  style: TextStyle(
-                    fontFamily: 'sf_pro_semibold',
-                    fontSize: 25,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            padding: EdgeInsets.all(30.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "LOGIN",
+                    style: TextStyle(
+                      fontFamily: 'sf_pro_semibold',
+                      fontSize: 25,
+                    ),
                   ),
-                ),
-                SizedBox(height: size.height * 0.05),
-                Image.asset(
-                  'assets/tree_login@4x-8.png',
-                  height: size.height * 0.35,
-                ),
-                SizedBox(
-                  height: 60,
-                ),
-                CustomTextField(
-                  controller: phoneNumberTEC,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "Please specify Phone Number";
-                    } else if (value.toString().length > 10 ||
-                        value.toString().length < 10) {
-                      return "Invalid Phone Number";
-                    } else {
-                      return null;
-                    }
-                  },
-                  label: "Phone Number",
-                  type: TextInputType.number,
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                CustomButton(
-                  onPressed: () {
-                    if (_formKey.currentState.validate()) {
-                      loginUser(context);
-                    }
-                  },
-                  label: "Verify",
-                  color: secondary,
-                  labelColor: white,
-                )
-              ],
+                  SizedBox(height: size.height * 0.05),
+                  Image.asset(
+                    'assets/tree_login@4x-8.png',
+                    height: size.height * 0.35,
+                  ),
+                  SizedBox(
+                    height: 60,
+                  ),
+                  CustomTextField(
+                    controller: phoneNumberTEC,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Please specify Phone Number";
+                      } else if (value.toString().length > 10 ||
+                          value.toString().length < 10) {
+                        return "Invalid Phone Number";
+                      } else {
+                        return null;
+                      }
+                    },
+                    label: "Phone Number",
+                    type: TextInputType.number,
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  CustomButton(
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        loginUser(context);
+                      }
+                    },
+                    label: "Verify",
+                    color: secondary,
+                    labelColor: white,
+                  )
+                ],
+              ),
             ),
           ),
         ),
