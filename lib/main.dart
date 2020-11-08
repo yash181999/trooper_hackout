@@ -8,8 +8,6 @@ import 'package:trooper_hackout/resources/app_translations_delegate.dart';
 import 'package:trooper_hackout/resources/application.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:trooper_hackout/resources/color.dart';
-
-
 import 'Screens/login.dart';
 
 void main() {
@@ -23,20 +21,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-
-
   }
-
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +33,11 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor:primary,
+        primaryColor: primary,
         fontFamily: 'sf_pro_regular',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SplashScreen(),
+      home: MainScreen(),
     );
   }
 }

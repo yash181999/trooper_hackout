@@ -58,6 +58,7 @@ dependencies:
   tflite: ^1.1.1
   http: ^0.12.2
   fluttertoast: ^3.1.0
+  flutter_svg: ^0.19.1
 
 
 
@@ -88,6 +89,7 @@ flutter:
      - assets/logo.png
      - assets/model_unquant.tflite
      - assets/labels.txt
+     - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
