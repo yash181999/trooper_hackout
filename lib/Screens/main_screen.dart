@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tflite/tflite.dart';
-import 'file:///F:/tropper/lib/Screens/Market.dart';
+import 'package:trooper_hackout/Screens/Market.dart';
 import 'package:trooper_hackout/Screens/NewsScreen.dart';
 import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/Screens/sell_screen.dart';
@@ -12,7 +12,6 @@ import 'package:trooper_hackout/news_resource/helper/news.dart';
 import 'package:trooper_hackout/resources/color.dart';
 import 'package:keyboard_visibility/keyboard_visibility.dart';
 
-
 import 'Buy_sell.dart';
 import 'buy_screen.dart';
 
@@ -22,8 +21,6 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-
-
   bool keyboardOpen = false;
   int currentTab = 0; // to keep track of active tab index
   final List<Widget> screens = [
@@ -47,27 +44,26 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: PageStorage(
         child: currentScreen,
         bucket: bucket,
       ),
-      floatingActionButton: keyboardOpen ? SizedBox() : FloatingActionButton(
-        backgroundColor: primary,
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          setState(() {
-            currentScreen = BuySell();
-          });
-        },
-      ),
+      floatingActionButton: keyboardOpen
+          ? SizedBox()
+          : FloatingActionButton(
+              backgroundColor: primary,
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                setState(() {
+                  currentScreen = BuySell();
+                });
+              },
+            ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
-
-
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 10,
@@ -109,7 +105,7 @@ class _MainScreenState extends State<MainScreen> {
                     onPressed: () {
                       setState(() {
                         currentScreen =
-                          Market(); // if user taps on this dashboard tab will be active
+                            Market(); // if user taps on this dashboard tab will be active
                         currentTab = 1;
                       });
                     },
@@ -141,8 +137,8 @@ class _MainScreenState extends State<MainScreen> {
                     minWidth: 40,
                     onPressed: () {
                       setState(() {
-                        currentScreen =  Tlight();
-                             // if user taps on this dashboard tab will be active
+                        currentScreen = Tlight();
+                        // if user taps on this dashboard tab will be active
                         currentTab = 2;
                       });
                     },
@@ -189,7 +185,6 @@ class _MainScreenState extends State<MainScreen> {
                   )
                 ],
               )
-
             ],
           ),
         ),
