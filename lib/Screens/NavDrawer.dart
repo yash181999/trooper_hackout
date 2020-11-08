@@ -1,15 +1,57 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:trooper_hackout/Market.dart';
 import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/Screens/buy_screen.dart';
+import 'package:trooper_hackout/Screens/login.dart';
 import 'package:trooper_hackout/Screens/tlight.dart';
+import 'package:trooper_hackout/database/auth.dart';
 import 'package:trooper_hackout/resources/color.dart';
 import 'package:trooper_hackout/resources/color.dart';
 import 'package:trooper_hackout/resources/color.dart';
 
-class NavDrawer extends StatelessWidget {
+class NavDrawer extends StatefulWidget {
 
-  String Name , email;
+  @override
+  _NavDrawerState createState() => _NavDrawerState();
+}
+
+class _NavDrawerState extends State<NavDrawer> {
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getDetails();
+  }
+  String name, userId,address;
+  getDetails() async{
+    await AuthService.getUserNameSharePref().then((value) {
+        setState(() {
+          name = value;
+        });
+    });
+
+
+     await AuthService.getUserNameSharePref().then((value) {
+       setState(() {
+         userId = value;
+       });
+     });
+
+     await Firestore.instance.collection("Users").document(userId).get().then((value) {
+
+        setState(() {
+             address = value['district'] + value['state'];
+        });
+
+     });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -34,7 +76,7 @@ class NavDrawer extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 40,),
-                  Row(
+                  Column(
                     children: [
                       SizedBox(width: 30,),
                       Center(
@@ -42,7 +84,7 @@ class NavDrawer extends StatelessWidget {
                           children: [
                             Center(
                               child: Text(
-                                "Vinay Solanki",
+                                name,
                                 style: TextStyle(
                                     fontFamily: "sf_pro_medium",
                                     fontSize: 20,
@@ -53,7 +95,7 @@ class NavDrawer extends StatelessWidget {
                             SizedBox(height: 10,),
                             Center(
                               child: Text(
-                                "vinaysolanki24516@gmail.com",
+                                address != null ? address : "Dewas",
                                 style: TextStyle(
                                     fontFamily: "sf_pro_medium",
                                     fontSize: 15,
@@ -101,7 +143,16 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.exit_to_app , color: Colors.black,),
             title: Text('Logout',style: TextStyle(fontFamily: "sf_pro_medium", color: Colors.black),),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () async{
+
+                Navigator.pushReplacement(context, MaterialPageRoute(
+                     builder: (context) => LoginScreen()
+                ));
+
+                await FirebaseAuth.instance.signOut();
+
+              }
+
           ),
         ],
       ),

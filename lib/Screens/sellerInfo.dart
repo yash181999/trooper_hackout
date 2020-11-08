@@ -11,6 +11,8 @@ import 'package:trooper_hackout/widgets/custom_text.dart';
 import 'package:trooper_hackout/widgets/heading_text.dart';
 import 'package:flutter_sms/flutter_sms.dart';
 
+import 'buy_product.dart';
+
 
 class SellerInfo extends StatefulWidget {
   final sellerId,photo, address, state, district, sellerName, price, quantity,itemName,sellerTokenId,documentId;
@@ -101,10 +103,29 @@ class _SellerInfoState extends State<SellerInfo> {
            userId : userId,
            userName : userName,
            documentId: widget.documentId,
+
          )
      ));
   }
 
+
+  buyProduct(){
+
+    Navigator.push(context, MaterialPageRoute(
+
+      builder: (context) => BuyProduct(
+        sellerId : widget.sellerId,
+        sellerName: widget.sellerName,
+        userId : userId,
+        userName : userName,
+        documentId: widget.documentId,
+        itemName: widget.itemName,
+        itemPrice: widget.price,
+      ),
+
+    ));
+
+  }
 
   //listcard widget
   Widget ListCard({dynamic commodityName,
@@ -282,31 +303,19 @@ class _SellerInfoState extends State<SellerInfo> {
               CustomButton(
                 label: "BUY",
                 labelColor: white,
-                onPressed: (){},
-                color: secondary,
-              ),
-
-              SizedBox(height: 10,),
-
-              CustomButton(
-                label: "Video Call",
-                labelColor: white,
                 onPressed: (){
-                  _videoCall();
+                  buyProduct();
                 },
                 color: secondary,
               ),
 
               SizedBox(height: 10,),
 
-
               clickedVideoCall == false ? CustomButton(
-                label: "Voice Call",
+                label: "Video Call",
                 labelColor: white,
                 onPressed: (){
-                  setState(() {
-                    clickedVideoCall = true;
-                  });
+                  _videoCall();
                 },
                 color: secondary,
               ) : Center(
@@ -314,6 +323,8 @@ class _SellerInfoState extends State<SellerInfo> {
               ),
 
               SizedBox(height: 10,),
+
+
 
               CustomButton(
                 label: "Message",

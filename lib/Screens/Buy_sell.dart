@@ -95,8 +95,15 @@ class _BuySellState extends State<BuySell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appbar(
-        title: "Buy and Sell"
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+            "Buy and Sell",
+            style: TextStyle(
+              color: white,
+            ),
+        ),
+
       ),
 
         body :  Container(

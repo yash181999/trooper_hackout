@@ -66,11 +66,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   }
 
+  bool clickedOtpBtn = false, clickedLoginButton = false;
+
 
 
   Future  <bool> loginUser(BuildContext context) async{
 
-    _firebaseAuth.verifyPhoneNumber(
+    await _firebaseAuth.verifyPhoneNumber(
         phoneNumber: countryCode + phoneNumberTEC.text,
         timeout: Duration(seconds: 60),
         verificationCompleted: (AuthCredential credential) async {
@@ -104,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 return AlertDialog(
                   title: Text("Give the code"),
                   content: Container(
-                    height: MediaQuery.of(context).size.height*0.50,
+                    height: MediaQuery.of(context).size.height*0.30,
                     child: Column(
                       children: [
                         CustomTextField(
@@ -119,11 +121,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
 
                   actions: [
-                    CustomButton(
+                    clickedOtpBtn == false ? CustomButton(
                       label: "Confirm",
                       color: secondary,
                       onPressed: () async {
-                        AuthCredential credential = PhoneAuthProvider.getCredential(
+                        setState(() {
+                          clickedOtpBtn =true;
+                        });
+                        AuthCredential credential =  PhoneAuthProvider.getCredential(
                             verificationId: verificationId ,
                             smsCode: codeController.text.trim());
 
@@ -150,8 +155,14 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                         }
 
+                        setState(() {
+                          clickedOtpBtn =  false;
+                        });
+
 
                       },
+                    ) : Center(
+                      child: CircularProgressIndicator(),
                     )
                   ],
 
@@ -201,15 +212,23 @@ class _LoginScreenState extends State<LoginScreen> {
 
               SizedBox(height: 30,),
 
-              CustomButton(
-                onPressed: (){
-                  if(_formKey.currentState.validate()){
-                    loginUser(context);
+              clickedLoginButton == false ? CustomButton(
+                onPressed: ()async{
+                  if(_formKey.currentState.validate()) {
+                    setState(() {
+                      clickedLoginButton = true;
+                    });
+                    await loginUser(context);
+
                   }
                 },
                 label: "Verify",
                 color: secondary,
                 labelColor: white,
+              ) : Center(
+                child: CircularProgressIndicator(
+
+                ),
               )
             ],
           ),
