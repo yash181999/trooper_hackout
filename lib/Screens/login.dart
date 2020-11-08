@@ -100,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 return AlertDialog(
                   title: Text("Give the code"),
                   content: Container(
-                    height: MediaQuery.of(context).size.height * 0.30,
+                    height: MediaQuery.of(context).size.height * 0.50,
                     child: Column(
                       children: [
                         CustomTextField(

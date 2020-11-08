@@ -9,6 +9,7 @@ import 'package:trooper_hackout/resources/color.dart';
 import 'login.dart';
 import 'main_screen.dart';
 
+
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -32,11 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 builder: (context) => MainScreen(),
               ));
         }
-        // else if(onBoarding == false && loggedIn == false) {
-        //   Navigator.pushReplacement(context,MaterialPageRoute(
-        //     builder: (context) => OnBoarding(),
-        //   ));
-        // }
+
         else {
           Navigator.pushReplacement(
               context,
@@ -51,7 +48,8 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  String userId;
+  String userId ='';
+
 
   getUserId() async {
     await AuthService.getUserIdSharedPref().then((value) {
@@ -59,6 +57,9 @@ class _SplashScreenState extends State<SplashScreen> {
         userId = value;
       });
     });
+
+
+
   }
 
   @override
