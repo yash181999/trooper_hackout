@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trooper_hackout/Screens/receivedRequests.dart';
+import 'package:trooper_hackout/Screens/received_requests.dart';
 import 'package:trooper_hackout/resources/color.dart';
 
 import 'my_requests.dart';

@@ -31,9 +31,9 @@ class IndexState extends State<IndexPage> {
     updateStaus();
     _channelController.dispose();
     Navigator.of(context).pop();
-    Navigator.of(context).pop();
     super.dispose();
   }
+
 
   updateStaus() async {
     await Firestore.instance.collection("VideoCall").document(widget.documentId).updateData(
