@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tflite/tflite.dart';
-import 'package:trooper_hackout/Market.dart';
+import 'file:///F:/tropper/lib/Screens/Market.dart';
 import 'package:trooper_hackout/Screens/NewsScreen.dart';
 import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/Screens/sell_screen.dart';

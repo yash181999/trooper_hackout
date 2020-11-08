@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trooper_hackout/Screens/Market.dart';
 import 'package:trooper_hackout/Screens/WeatherScreen.dart';
 import 'package:trooper_hackout/Screens/main_screen.dart';
 import 'package:trooper_hackout/Screens/splash_screen.dart';
@@ -37,7 +38,7 @@ class _MyAppState extends State<MyApp> {
         fontFamily: 'sf_pro_regular',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MainScreen(),
+      home: MainScreen()
     );
   }
 }
